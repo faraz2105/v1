@@ -24,9 +24,23 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/vendors/bundle.css",
+              "src/assets/css/app.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/vendors/bundle.js",
+              "src/vendors/charts/chartjs/chart.min.js",
+              "src/vendors/circle-progress/circle-progress.min.js",
+              "src/vendors/charts/peity/jquery.peity.min.js",
+              "src/assets/js/examples/charts/peity.js",
+              "src/vendors/datepicker/daterangepicker.js",
+              "src/vendors/slick/slick.min.js",
+              "src/vendors/vmap/jquery.vmap.min.js",
+              "src/vendors/vmap/maps/jquery.vmap.usa.js",
+              "src/assets/js/examples/vmap.js",
+              "src/assets/js/examples/dashboard.js",
+              "src/assets/js/app.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -1,0 +1,104 @@
+<body class="form-membership">
+
+  <!-- begin::page loader-->
+  <div class="page-loader">
+    <div class="spinner-border"></div>
+  </div>
+  <!-- end::page loader -->
+
+  <div class="form-wrapper">
+
+    <!-- logo -->
+    <div class="logo">
+      <img src="assets/media/image/logo-sm.png" alt="image">
+    </div>
+    <!-- ./ logo -->
+
+    <h5>ورود</h5>
+
+    <!-- form -->
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <button [disabled]="flagInput" class="input-group-text btn-primary" id="basic-addon1"
+            (click)="startTimer()">{{btnLogin}}</button>
+        </div>
+        <input type="text" class="form-control text-left" (change)="getValue($event)"
+          placeholder=" شماره موبایل خود را وارد نمایید" dir="ltr" required autofocus>
+      </div>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mt-4" [ngStyle]="{'visibility': flagInput ? 'visible' : 'hidden'}">
+        <input type="password" formControlName="password" class="form-control text-left" placeholder="کلمه عبور" dir="ltr"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">کلمه عبور را لطفا وارد کنید</div>
+      </div>
+      </div>
+      <!-- <div class="form-group d-sm-flex justify-content-between text-left mb-4">
+				<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" checked id="customCheck1">
+					<label class="custom-control-label" for="customCheck1">به خاطر سپاری</label>
+				</div>
+				<a class="d-block mt-2 mt-sm-0" href="recover-password.html">بازنشانی رمز عبور</a>
+			</div> -->
+      <button [ngStyle]="{'visibility': flagInput ? 'visible' : 'hidden'}" class="btn btn-primary btn-block">ورود به پنل
+        کاربری</button>
+      <hr>
+      <!-- <p class="text-muted">با حساب شبکه اجتماعی خود وارد شوید.</p> -->
+      <!-- <ul class="list-inline">
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-floating btn-facebook">
+						<i class="fa fa-facebook"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-floating btn-twitter">
+						<i class="fa fa-twitter"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-floating btn-dribbble">
+						<i class="fa fa-dribbble"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-floating btn-linkedin">
+						<i class="fa fa-linkedin"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-floating btn-google">
+						<i class="fa fa-google"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-floating btn-behance">
+						<i class="fa fa-behance"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-floating btn-instagram">
+						<i class="fa fa-instagram"></i>
+					</a>
+				</li>
+      </ul> -->
+      <p *ngIf="flagInput">{{timeLeft}}</p>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+      <hr>
+      <!-- <p class="text-muted">کلمه عبور را دریافت نکردید؟</p> -->
+      <!-- <a href="./register.html" class="btn btn-outline-light btn-sm">بازنشانی کلمه عبور</a> -->
+
+    </form>
+    <!-- ./ form -->
+
+  </div>
+
+  <!-- Plugin scripts -->
+  <script src="vendors/bundle.js"></script>
+
+  <!-- App scripts -->
+  <script src="assets/js/app.js"></script>
+</body>
